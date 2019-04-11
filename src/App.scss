@@ -1,3 +1,6 @@
+$react-blue : #282c34;
+
+
 .App {
   text-align: center;
 }
@@ -9,7 +12,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: $react-blue;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,17 +20,32 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+
+  img {
+    width: 100px;
+    margin: 10px;
+  }
+
+  p {
+    width: 500px;
+  }
+
+  section {
+    border: 5px solid white;
+  }
+
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+form {
+  
+  input {
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
-  }
+
 }
+
+
