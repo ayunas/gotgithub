@@ -82,7 +82,8 @@ class App extends Component {
           name={this.state.name}
           avatar={this.state.avatar}
           bio={this.state.bio}
-          location={this.state.location} />} 
+          location={this.state.location}
+          repos={this.state.repos} />} 
           />
           
         </header>
