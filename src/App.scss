@@ -26,6 +26,10 @@ $react-blue : #282c34;
     margin: 10px;
   }
 
+  .github {
+    width: 150px;
+  }
+
   p {
     width: 500px;
   }
@@ -44,6 +48,15 @@ form {
   
   input {
     display: block;
+    margin: 10px;
+    height: 30px;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100px;
+    border-radius: 10px;
   }
 
 }

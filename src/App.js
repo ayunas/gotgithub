@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faGithub} from '@fortawesome/free-solid-svg-icons';
+import {faGithub as faGithubRegular} from '@fortawesome/free-regular-svg-icons';
 import './App.scss';
 import axios from 'axios';
 import UserForm from './components/UserForm';
@@ -22,7 +25,13 @@ class App extends Component {
 
   getUser = (e) => {
     e.preventDefault();
-    this.setState({e : e.target.elements.username.value});
+    if (e !== '') {
+      this.setState({e : e.target.elements.username.value});
+    } else {
+      this.setState( {
+        e : null
+      })
+    }
     // console.log(e);
     // console.log(e.target);
     // console.log(e.target.elements);
@@ -43,22 +52,30 @@ class App extends Component {
           avatar: res.data.avatar_url
         })
       })
+      .catch( err => {
+        console.log(err);
+        this.setState({
+          e : null
+        })
+      })
   }
 
 
   render() {
-    console.log(this.state.e);
+    // console.log(this.state.e);
     return (
       <div className="App">
-
         <header className="App-header">
+          {/* <FontAwesomeIcon icon={faGithub} size='5x'/>
+          <FontAwesomeIcon icon={faGithubRegular} size='5x'/> */}
+          <img className='github' src='http://iconsetc.com/icons-watermarks/flat-rounded-square-white-on-black/social-media/social-media_github/social-media_github_flat-rounded-square-white-on-black_512x512.png'/>
           <h1 className='App-title'>Got Github?</h1>
           <UserForm getUser={this.getUser} />
-            <img src={this.state.avatar} /> 
-            { this.state.name ? <p>Name: {this.state.name} </p> : <small><em>Name : Unknown</em></small> }
-            { this.state.bio ? <p>About: {this.state.bio} </p> : <small><em>Description Unavailable</em></small> }
-            { this.state.location ? <p>Location: {this.state.location} </p> : <small><em>Location: Unknown</em></small> }
-            { this.state.repos ? <p>Number of Repos: {this.state.repos} </p> : <small><em>Repos: N/A</em></small>}
+          {this.state.e && <img src={this.state.avatar}/> }
+          { this.state.e && <p>Name: {this.state.name ? this.state.name :<span>N/A</span>} </p> }
+          { this.state.e && <p>About: {this.state.bio ? this.state.bio : <span>N/A</span>} </p> }
+          { this.state.e && <p>Location: {this.state.location ? this.state.location : <span>N/A</span>} </p> }
+          { this.state.e && <p>Number of Repos: {this.state.repos ? this.state.repos : <span>N/A</span>} </p> }
         </header>
       </div>
     );
