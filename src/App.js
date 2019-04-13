@@ -72,8 +72,7 @@ class App extends Component {
         <header className="App-header">
           {/* <FontAwesomeIcon icon={faGithub} size='5x'/>
           <FontAwesomeIcon icon={faGithubRegular} size='5x'/> */}
-          <img className='github' src='http://iconsetc.com/icons-watermarks/flat-rounded-square-white-on-black/social-media/social-media_github/social-media_github_flat-rounded-square-white-on-black_512x512.png'/>
-          <h1 className='App-title'>Got Github?</h1>
+         
           {/* <UserForm getUser={this.getUser} /> */}
           <Route exact path='/' render={ props => <UserForm {...props} getUser={this.getUser} />} />
           {/* <Github /> */}
