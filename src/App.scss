@@ -67,14 +67,17 @@ button {
 }
 
 form {
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   input {
-    display: block;
-    margin-left: 25px;
+    // margin-left: 25px;
     height: 30px;
   }
 
   button {
+    align-self: center;
     margin-top: 20px;
     padding: 15px;
     width: 130px;
@@ -82,7 +85,6 @@ form {
     background-color: black;
     color: white;
   }
-
 }
 
 
