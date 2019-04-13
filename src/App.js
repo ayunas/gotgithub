@@ -13,7 +13,8 @@ class App extends Component {
         repos: null,
         name: null,
         bio: null,
-        avatar: null
+        avatar: null,
+        e: null
       }
 
     }
@@ -21,6 +22,7 @@ class App extends Component {
 
   getUser = (e) => {
     e.preventDefault();
+    this.setState({e : e.target.elements.username.value});
     // console.log(e);
     // console.log(e.target);
     // console.log(e.target.elements);
@@ -45,18 +47,18 @@ class App extends Component {
 
 
   render() {
+    console.log(this.state.e);
     return (
       <div className="App">
+
         <header className="App-header">
           <h1 className='App-title'>Got Github?</h1>
           <UserForm getUser={this.getUser} />
-          
-            { this.state.avatar ? <img src={this.state.avatar} /> : <small><em>Please enter a valid username</em></small> }
-            { this.state.name ? <p>Name: {this.state.name} </p> : <small><em>Please enter a valid username</em></small> }
-            { this.state.bio ? <p>About: {this.state.bio} </p> : <small><em>Please enter a valid username</em></small> }
-            { this.state.location ? <p>Location: {this.state.location} </p> : <small><em>Please enter a valid username</em></small> }
-            { this.state.repos ? <p>Number of Repos: {this.state.repos} </p> : <small><em>Please enter a valid username</em></small>}
-          
+            <img src={this.state.avatar} /> 
+            { this.state.name ? <p>Name: {this.state.name} </p> : <small><em>Name : Unknown</em></small> }
+            { this.state.bio ? <p>About: {this.state.bio} </p> : <small><em>Description Unavailable</em></small> }
+            { this.state.location ? <p>Location: {this.state.location} </p> : <small><em>Location: Unknown</em></small> }
+            { this.state.repos ? <p>Number of Repos: {this.state.repos} </p> : <small><em>Repos: N/A</em></small>}
         </header>
       </div>
     );
