@@ -17,6 +17,7 @@ class App extends Component {
 
       this.state = {
         repos: null,
+        login: null,
         name: null,
         bio: null,
         avatar: null,
@@ -52,7 +53,8 @@ class App extends Component {
           name : res.data.name,
           bio: res.data.bio,
           location: res.data.location,
-          avatar: res.data.avatar_url
+          avatar: res.data.avatar_url,
+          login: res.data.login
         })
       })
       .catch( err => {
@@ -83,7 +85,8 @@ class App extends Component {
           avatar={this.state.avatar}
           bio={this.state.bio}
           location={this.state.location}
-          repos={this.state.repos} />} 
+          repos={this.state.repos} 
+          login={this.state.login} />} 
           />
           
         </header>
